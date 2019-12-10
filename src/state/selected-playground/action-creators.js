@@ -8,19 +8,18 @@ import {
   RATE_PLAYGROUND,
   RATE_PLAYGROUND_FAILED,
   RATE_PLAYGROUND_SUCCESS
-} from './actions';
-import { PlaygroundDto } from '../../proxy/dtos/classes';
+} from "./actions";
 
-import { HttpClient } from '../../services/http-client/http-client-service';
+import { HttpClient } from "../../services/http-client/http-client-service";
 
-import { State } from '../state';
+import { State } from "../state";
 
 export async function selectPlayground(playgroundId: number) {
   var response = await HttpClient.httpFetch(`/playground/${playgroundId}`, {
-    method: 'GET'
+    method: "GET"
   });
   if (response.status != 200) {
-    console.log('Fail to load Playground Details');
+    console.log("Fail to load Playground Details");
     return dispatch => {
       dispatch({
         type: FAILD_LOAD_PLAYGROUND_DETAILS
@@ -61,10 +60,10 @@ export async function confirmReservation(reservationModel: any) {
       `/playground/${state.selectedPlayground.current.id}/reserve`,
       {
         headers: {
-          Accept: 'application/json',
-          'Content-Type': 'application/json'
+          Accept: "application/json",
+          "Content-Type": "application/json"
         },
-        method: 'POST',
+        method: "POST",
         body: JSON.stringify(reservationModel)
       }
     );
@@ -95,10 +94,10 @@ export async function ratePlayground(rating) {
       }`,
       {
         headers: {
-          Accept: 'application/json',
-          'Content-Type': 'application/json'
+          Accept: "application/json",
+          "Content-Type": "application/json"
         },
-        method: 'POST',
+        method: "POST",
         body: JSON.stringify(rating)
       }
     );

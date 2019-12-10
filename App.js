@@ -3,7 +3,7 @@ import { StyleSheet, View } from "react-native";
 import { Root, StyleProvider } from "native-base";
 import { createAppContainer } from "react-navigation";
 import { connect } from "react-redux";
-import { Font } from "expo";
+import * as Font from "expo-font";
 import { createStore, Store, applyMiddleware, bindActionCreators } from "redux";
 import { composeWithDevTools } from "redux-devtools-extension";
 import promiseMiddleware from "redux-promise";
